@@ -6,7 +6,8 @@ if ( post_password_required() ) { ?>
 }
 if ( have_comments() ) :
 if ( !is_page_template('guestbook.php') ) :?>
-	<h3 id="commentstitle">Comments</h3>
+	<div class="topshadow"></div>
+	<h3 id="commentstitle">Comments</h3><div class="bottomshadow"></div>
 	<ol class="commentslist">
 		<?php wp_list_comments('type=all&callback=mytheme_comment'); ?>
 	</ol>
@@ -18,6 +19,7 @@ if ( !is_page_template('guestbook.php') ) :?>
 		<?php endif;
 endif;
 if ( comments_open() ) : ?>
+	<div class="topshadow"></div>
 	<div id="respond">
 		<h3>Leave a Comment:</h3>
 		<div id="cancel-comment-reply">
@@ -54,9 +56,11 @@ if ( comments_open() ) : ?>
 				</form>
 		<?php endif;  ?>
 	</div>
+	<div class="bottomshadow"></div>
 <?php endif;
 if (is_page_template('guestbook.php') ) :?>
-	<h3 id="commentstitle">Comments</h3>
+	<div class="topshadow"></div>
+	<h3 id="commentstitle">Comments</h3><div class="bottomshadow"></div>
 	<ol class="commentslist">
 		<?php wp_list_comments('reverse_top_level=ture&type=comment&callback=mytheme_comment');?>
 	</ol>

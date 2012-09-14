@@ -28,10 +28,11 @@ function mytheme_comment($comment, $args, $depth) {
 	$GLOBALS['comment'] = $comment;
 ?>
 <li <?php comment_class(); ?>>
+<div class="topshadow"></div>
 <div id="comment-<?php comment_ID(); ?>" class="singlecomment">
 	<div class="comment-author">
-		<?php echo get_avatar( $comment->comment_author_email, 40 ); ?>
-		<?php printf(__('<cite class="fn">%s</cite> <span class="says">says on </span>'), get_comment_author_link()) ?><?php printf(__('%1$s at %2$s'),get_comment_date('m/d'),get_comment_time('H:i:s'))?> via <?php useragent_output_custom(); ?>:
+		<?php echo get_avatar( $comment->comment_author_email, 45 ); ?>
+		<?php printf(__('<cite class="fn">%s</cite> <span class="says">says on </span>'), get_comment_author_link()) ?><?php printf(__('%1$s at %2$s'),get_comment_date('m/d'),get_comment_time('H:i:s'))?><?php if(function_exists('useragent_output_custom')){ ?> via <?php useragent_output_custom(); ?><?php } ?>:
 	</div>
 	<div class="commenttext">
 	<?php if ($comment->comment_approved == '0') : ?>
@@ -44,6 +45,7 @@ function mytheme_comment($comment, $args, $depth) {
 		<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?><?php edit_comment_link(__('Edit'),'  ','') ?>
 	</div>
 </div>
+<div class="bottomshadow"></div>
 <?php
 }
 ?>

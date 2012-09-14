@@ -1,5 +1,6 @@
 <?php
 while(have_posts()) : the_post(); ?>
+	<div class="topshadow"></div>
 <section class="post" id="post-<?php the_ID(); ?>" >
 	<a href="<?php the_permalink(); ?>"  class="posttitle"><h3><?php the_title(); ?></h3></a>
 	<div class="postmetadata" id="postmetadata-<?php the_ID(); ?>">
@@ -19,6 +20,10 @@ endif;//meta分类结束
 ?>
 	<?php if ( is_user_logged_in() ):?><?php edit_post_link('EDIT',';');?><?php endif; ?>
 	</div>
+	<div class="mobilepostmetadata" id="mobilepostmetadata-<?php the_ID(); ?>">
+		<?php the_time('m/d'); ?>
+	</div>
+	<div class="bottomshadow"></div>
 	<div class="entry" id="entry-<?php the_ID(); ?>">
 		<?php the_content('(Read more...)'); ?>
 	</div>
@@ -26,7 +31,7 @@ endif;//meta分类结束
 <?php
 endwhile;
 if ( is_home() || is_archive()):
-?>
+?><div class="topshadow"></div>
 <div id="navhistory">
 	<div id="recentposts">
 		<?php previous_posts_link('&laquo; Recent Posts') ?>
@@ -39,6 +44,7 @@ if ( is_home() || is_archive()):
 endif;
 if ( is_single() ):
 ?>
+<div class="topshadow"></div>
 <div id="navhistory">
 	<div id="recentposts">
 		<?php previous_post_link('&laquo; %link'); ?>
@@ -46,7 +52,14 @@ if ( is_single() ):
 	<div id="oldposts">
 		<?php next_post_link('%link &raquo;'); ?>
 	</div>
+	<div id="mboldposts">
+		<?php next_post_link('Next:%link &raquo;'); ?>
+	</div>
+	<div id="mbrecentposts">
+		<?php previous_post_link('Previous:%link &raquo;'); ?>
+	</div>
 </div>
+<div class="bottomshadow"></div>
 <?php
 endif;
 ?>
